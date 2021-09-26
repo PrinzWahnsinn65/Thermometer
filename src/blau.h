@@ -1,4 +1,4 @@
 #include <BluetoothSerial.h>
 
 void blau_setup();
-void kommunikation();
+int kommunikation();

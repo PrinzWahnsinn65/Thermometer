@@ -9,7 +9,7 @@ void blau_setup(){
 
 }
 
-void kommunikation(){
+int kommunikation(){
     if (Serial.available()) {
     BT.write(Serial.read());
   }
@@ -17,4 +17,10 @@ void kommunikation(){
     Serial.write(BT.read());
   }
   delay(25);
+    if(BT.read()=='A'){
+      return(1);
+    }
+  else{
+  return(0);
+}
 }

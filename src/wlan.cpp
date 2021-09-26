@@ -1,7 +1,5 @@
 #include "wlan.h"
 #include <WiFi.h>
-
-
 void wlan_suchen(){
 
 WiFi.disconnect();
@@ -9,12 +7,12 @@ WiFi.disconnect();
 //Gerüst
 
 int n = WiFi.scanNetworks();
-  Serial.println("scan done");
+  Serial.println("Scan beendet");
   if (n == 0) {
-      Serial.println("no networks found");
+      Serial.println("keine Netzwerke gefunden");
   } else {
     Serial.print(n);
-    Serial.println(" networks found");
+    Serial.println(" Netzwerke gefunden");
     for (int i = 0; i < n; ++i) {
       // Print SSID and RSSI for each network found
       Serial.print(i + 1);
@@ -28,9 +26,10 @@ int n = WiFi.scanNetworks();
     }
 //Ende Gerüst
 
-int anz_wlan = WiFi.scanNetworks();
+// int anz_wlan = WiFi.scanNetworks();
 
 
+}
 }
 
 void wlan_starten(char* ssid, char* pwd){
