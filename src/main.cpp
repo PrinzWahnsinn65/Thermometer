@@ -2,7 +2,7 @@
 #include "blau.h"
 #include"wlan.h"
 
-int ergebnis=0;
+char ergebnis='0';
 
 void setup() {
   // put your setup code here, to run once:
@@ -15,9 +15,12 @@ blau_setup();
 void loop() {
   // put your main code here, to run repeatedly:
 
- ergebnis= kommunikation();
+ergebnis = kommunikation();
 
- if(ergebnis==1){
-   wlan_suchen();
- }
+switch (ergebnis)
+{
+case 97: {wlan_suchen();ergebnis='0';break;};
+
+default:{;break;};
+}
 }

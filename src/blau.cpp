@@ -1,6 +1,7 @@
 #include <blau.h>
 
 BluetoothSerial BT;
+char lesen;
 void blau_setup(){
 
     Serial.begin(115200);
@@ -9,18 +10,15 @@ void blau_setup(){
 
 }
 
-int kommunikation(){
+char kommunikation(){
     if (Serial.available()) {
     BT.write(Serial.read());
   }
   if (BT.available()) {
-    Serial.write(BT.read());
-  }
+    lesen=BT.read();
+    Serial.write(lesen);
+    
   delay(25);
-    if(BT.read()=='A'){
-      return(1);
-    }
-  else{
-  return(0);
-}
+  return(lesen);
+  }
 }
