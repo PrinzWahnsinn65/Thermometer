@@ -1,7 +1,10 @@
 #include <blau.h>
+#include<Arduino.h>
 
 BluetoothSerial BT;
 char lesen;
+String befehl;
+
 void blau_setup(){
 
     Serial.begin(115200);
@@ -10,15 +13,23 @@ void blau_setup(){
 
 }
 
-char kommunikation(){
+String kommunikation(){
     if (Serial.available()) {
     BT.write(Serial.read());
   }
   if (BT.available()) {
+    befehl="";
+    while (BT.read()!='\n'){
     lesen=BT.read();
-    Serial.write(lesen);
+    //Serial.print(lesen);
     
+
+    befehl+=lesen;
+    
+
+
   delay(25);
-  return(lesen);
+    }
   }
+  return(befehl);
 }
