@@ -1,9 +1,8 @@
 #include <blau.h>
-#include<Arduino.h>
+#include"wlan.h"
 
 BluetoothSerial BT;
-char lesen;
-String befehl;
+int lesen;
 
 void blau_setup(){
 
@@ -13,23 +12,25 @@ void blau_setup(){
 
 }
 
-String kommunikation(){
-    if (Serial.available()) {
-    BT.write(Serial.read());
-  }
+int kommunikation(){
+
+while(lesen!=122){
+
+  lesen=0;
   if (BT.available()) {
-    befehl="";
-    while (BT.read()!='\n'){
     lesen=BT.read();
-    //Serial.print(lesen);
-    
-
-    befehl+=lesen;
-    
-
 
   delay(25);
     }
+  switch (lesen)
+  {
+    case 49: {wlan_suchen();break;}
+    case 50: {Serial.println("2 gesendet");break;}
+    case 122: {exit;break;}
+
+  default: {lesen=0;break;}
+
   }
-  return(befehl);
+  return(lesen);
+}
 }

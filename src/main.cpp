@@ -3,6 +3,8 @@
 #include <Arduino.h>
 #include "blau.h"
 #include "wlan.h"
+#include "speicher.h"
+
 
 
 
@@ -19,7 +21,7 @@ void loop() {
 
 ergebnis = kommunikation();
 
-Serial.print(ergebnis);
+if (ergebnis==122){Serial.println("Bluetootkommunikation beendet");
 /*
 switch ( str2int(ergebnis) )
 {
@@ -28,4 +30,5 @@ case str2int("scan"): {wlan_suchen();ergebnis='0';break;};
 default:{;break;};
 }
 */
+}
 }

@@ -1,4 +1,14 @@
 #include <Arduino.h>
+#include <Preferences.h>
 
-String ergebnis="";
+int ergebnis=0;
 int auswahl;
+
+Preferences einstellungen;
+String AktSSID="";
+String AktPWD="";
+String AktIP="";
+String AktSub="";
+String AktGateway="";
+String AktDNS="";
+bool dhcpC = true;
