@@ -3,7 +3,7 @@
 #include <Arduino.h>
 #include "blau.h"
 #include "wlan.h"
-#include "speicher.h"
+//#include "speicher.h"
 
 
 
@@ -20,7 +20,9 @@ void loop() {
   // put your main code here, to run repeatedly:
 
 ergebnis = kommunikation();
-
+if (ergebnis!=0){
+Serial.println(ergebnis);
+}
 if (ergebnis==122){Serial.println("Bluetootkommunikation beendet");
 /*
 switch ( str2int(ergebnis) )

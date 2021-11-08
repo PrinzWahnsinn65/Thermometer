@@ -7,7 +7,7 @@ int lesen;
 void blau_setup(){
 
     Serial.begin(115200);
-    BT.begin("ESP32test"); //Name des ESP32
+    BT.begin("LouiX-H5N1"); //Name des ESP32
     Serial.println("Der ESP32 ist bereit. Verbinde dich nun über Bluetooth.");
 
 }
@@ -21,7 +21,8 @@ while(lesen!=122){
     lesen=BT.read();
 
   delay(25);
-    }
+    
+    /*
   switch (lesen)
   {
     case 49: {wlan_suchen();break;}
@@ -31,6 +32,9 @@ while(lesen!=122){
   default: {lesen=0;break;}
 
   }
+  */
   return(lesen);
 }
+}
+return(0);
 }
